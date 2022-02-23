@@ -18,6 +18,14 @@ def main():
 
     # args
 
+    owner = dev
+    token = ''
+    name = ''
+    symbol = ''
+    tokens = []
+    multipes = ''
+
+
     # deploy
 
     # wireup
