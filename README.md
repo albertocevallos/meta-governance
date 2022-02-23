@@ -1,6 +1,6 @@
 # Meta Governance
 
-Simple, minimal implementation of quadratic voting with weighting.
+Simple, minimal implementation of quadratic voting with token weighting.
 
 ## Installation and Setup
 
