@@ -1,4 +1,6 @@
-# Brownie Boilerplate
+# Meta Governance
+
+Simple, minimal implementation of quadratic voting with weighting.
 
 ## Installation and Setup
 
