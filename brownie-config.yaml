@@ -7,7 +7,7 @@ dependencies:
   - OpenZeppelin/openzeppelin-contracts@4.5.0
 compiler:
   solc:
-    version: 0.8.12
+    # version: 0.8.12
     optimizer:
       enabled: true
       runs: 1
@@ -17,4 +17,4 @@ compiler:
 autofetch_sources: True
 dotenv: .env
 networks:
-  default: avalanche-main-fork
+  default: mainnet-fork

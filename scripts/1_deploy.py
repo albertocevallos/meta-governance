@@ -39,9 +39,6 @@ def deploy_governance(dev, args):
     console.print('[blue]Meta Governance contract was deployed at: [/blue]', governance_instance.address)
     return governance_instance
 
-
-    # de;poy instance
-
 def connect_account():
     console.print(f"\nnetwork: {network.show_active()}")
     accts = accounts.load()
