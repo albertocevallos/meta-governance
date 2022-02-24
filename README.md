@@ -1,6 +1,6 @@
 # Meta Governance
 
-Simple, minimal implementation of quadratic voting with token weighting.
+Simple, minimal implementation of weighted quadratic voting. To be used with [Snapshot](https://snapshot.org/)
 
 ## Installation and Setup
 
