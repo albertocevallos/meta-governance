@@ -3,12 +3,13 @@ from brownie import (
     accounts,
     network,
     interface,
-    MetaGovernance
+    MetaGovernance,
 )
 import os
 import sys
 import signal
 from datetime import datetime
+import click
 from rich.console import Console
 console = Console()
 
@@ -40,11 +41,7 @@ def deploy_governance(dev, args):
     return governance_instance
 
 def connect_account():
-    console.print(f"\nnetwork: {network.show_active()}")
-    accts = accounts.load()
-    console.print("\n[green]Accounts:[/green]")
-    for acct in accts:
-        console.print(f"\t{acct}")
-    name = input("\nEnter account name: ").strip()
-    owner = accounts.load(name)
-    return (name, owner)
+    click.echo(f"You are using the '{network.show_active()}' network")
+    dev = accounts.load(click.prompt("Account", type=click.Choice(accounts.load())))
+    click.echo(f"You are using: 'dev' [{dev.address}]")
+    return dev
