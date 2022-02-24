@@ -69,10 +69,32 @@ contract MetaGovernance {
     function balanceOf(address _voter) external view returns (uint256) {
         uint256 sum = 0;
         for (uint i = 0; i < tokens.length; i++) {
-            uint256 realBalance = IERC20(tokens[i]).balanceOf(_voter);
-            sum = sum.add(realBalance.mul(multiples[i]));
+            if (isLp[i] == true) {
+                uint256 realBalance = _getBalancesFromLp(_voter, tokens[i]);
+                sum = sum.add(realBalance.mul(multiples[i]));
+            } else {
+                uint256 realBalance = IERC20(tokens[i]).balanceOf(_voter);
+                sum = sum.add(realBalance.mul(multiples[i]));
+            }   
         }
         return sum;
+    }
+
+    /* ============ Permissioned Functions ============ */
+
+    function changeOwner(address _newOwner) external onlyOwner {
+        owner = _newOwner;
+    }
+    function setTokens(address[] memory _tokens) external onlyOwner {
+        tokens = _tokens;
+    }
+
+    function setMultiples(uint256[] memory _multiples) external onlyOwner {
+        multiples = _multiples;
+    }
+
+    function setIsLp(bool[] memory _isLp) external onlyOwner {
+        isLp = _isLp;
     }
 
     /* ============ Internal Functions ============ */
